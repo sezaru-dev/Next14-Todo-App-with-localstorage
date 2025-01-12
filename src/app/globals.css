@@ -1,27 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base{
+
+  body{
+    @apply font-JosefinSans bg-lmode-veryLightGrayishBlue dark:bg-dmode-veryDarkBlue transition-colors duration-200 ease-in-out
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.colorModeTransition{
+  @apply transition-colors duration-200 ease-in-out
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.completed{
+  @apply line-through font-normal text-lmode-grayishBlue1 dark:text-dmode-grayishBlue1
+}
+.inComplete{
+  @apply text-lmode-grayishBlue2 dark:text-dmode-lightGrayishBlue font-bold
+}
+
+.circle{
+  @apply h-6 w-6 rounded-full border flex-none border-lmode-lightGrayishBlue dark:border-dmode-grayishBlue3
+}
+
+.checkGradient{
+  @apply bg-gradient-to-br from-gradientBlue to-gradientPurple
+}
+.circleGradientBorder{
+  @apply bg-lmode-lightGrayishBlue dark:bg-dmode-grayishBlue3 hover:bg-gradient-to-br from-gradientBlue to-gradientPurple
+}
+
+.activeBtn{
+  @apply text-brightBlue
 }
