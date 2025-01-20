@@ -19,7 +19,7 @@ export const useTodoStore = create<TodoState>((set, get) => ({
 
   /* this code accepts title as parameter,  add it to tasks together with its id, and isCompleted then save it to localstorage */
   addTask: (title:string) => {
-    set((state:any) => ({tasks: [
+    set((state) => ({tasks: [
       ...state.tasks, 
       {
         id: crypto.randomUUID(),
@@ -32,13 +32,13 @@ export const useTodoStore = create<TodoState>((set, get) => ({
   },
 
   /* this code saves task to localstorage */
-  saveTaskToLocalStorage: (task:any) => {
+  saveTaskToLocalStorage: (task:TaskType | TaskType[]) => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(task))
   },
 
   /* this logic deletes item from tasks by id, then update the data in localstorage */
   deleteTask: (taskId:string) => {
-    set((state:any) => ({tasks: state.tasks.filter((task:any) => task.id !== taskId)}))
+    set((state) => ({tasks: state.tasks.filter((task) => task.id !== taskId)}))
     get().saveTaskToLocalStorage(get().tasks)
   },
 
@@ -65,13 +65,13 @@ export const useTodoStore = create<TodoState>((set, get) => ({
 
   /* this code toggle task completion true/false by id */
   toggleTaskStatus: (taskId:string) => {
-    set((state:any) => ({ tasks: state.tasks.map((task:any) => task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task ) }))
+    set((state) => ({ tasks: state.tasks.map((task) => task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task ) }))
     get().saveTaskToLocalStorage(get().tasks)
   },
 
     /* this code clear all task */
   clearCompletedTask: () => {
-    set((state:any) => ({tasks: state.tasks.filter((task:any) => !task.isCompleted)}))
+    set((state) => ({tasks: state.tasks.filter((task) => !task.isCompleted)}))
     get().saveTaskToLocalStorage(get().tasks)
   },
   

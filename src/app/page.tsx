@@ -8,12 +8,12 @@ import Tasks from "@/components/Tasks";
 export default function Home() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const loadSavedTasks = useTodoStore((state:any) => state.loadSavedTasks)
+  const loadSavedTasks = useTodoStore((state) => state.loadSavedTasks)
 
   useEffect(() =>{
     loadSavedTasks()
     setMounted(true);
-  },[])
+  },[loadSavedTasks])
 
   if (!mounted) return null;
   const currentTheme = theme === 'system' ? systemTheme : theme;

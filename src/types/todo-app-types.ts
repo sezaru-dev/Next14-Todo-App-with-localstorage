@@ -12,7 +12,7 @@ export type TodoState = {
   filteredTasks: TaskType[]
   loadSavedTasks: () => void;
   addTask: (title:string) => void;
-  saveTaskToLocalStorage: (task:any) => void;
+  saveTaskToLocalStorage: (task:TaskType | TaskType[]) => void;
   deleteTask: (taskId:string) => void;
   setfilter: (filteredBy: TaskFilter) => void;
   setFilteredTasks: () => void;

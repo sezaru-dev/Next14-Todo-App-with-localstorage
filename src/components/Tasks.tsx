@@ -6,14 +6,14 @@ import { useTodoStore } from '@/store/todo-store'
 import { TaskType } from '@/types/todo-app-types'
 
 const Tasks = () => {
-  const tasks = useTodoStore((state:any) => state.tasks)
-  const filter = useTodoStore((state:any) => state.filter)
-  const filteredTasks = useTodoStore((state:any) => state.filteredTasks)
-  const setFilteredTasks = useTodoStore((state:any) => state.setFilteredTasks)
+  const tasks = useTodoStore((state) => state.tasks)
+  const filter = useTodoStore((state) => state.filter)
+  const filteredTasks = useTodoStore((state) => state.filteredTasks)
+  const setFilteredTasks = useTodoStore((state) => state.setFilteredTasks)
   
   useEffect(() => {
     setFilteredTasks()
-  },[tasks, filter])
+  },[tasks, filter, setFilteredTasks])
 
   return (
     <section className='relative -top-7 lg:-top-12'>

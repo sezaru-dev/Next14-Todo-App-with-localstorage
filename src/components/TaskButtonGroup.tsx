@@ -4,8 +4,8 @@ type ButtonGroupOwnProps = {
 }
 
 const TaskButtonGroup = ({style}: ButtonGroupOwnProps) => {
-  const filter = useTodoStore((state:any) => state.filter)
-  const setfilter = useTodoStore((state:any) => state.setfilter)
+  const filter = useTodoStore((state) => state.filter)
+  const setfilter = useTodoStore((state) => state.setfilter)
   return (
       <div className={`${style} bg-lmode-veryLightGray dark:bg-dmode-darkDesaturatedBlue rounded-md flex items-center justify-center text-xs lg:text-sm font-bold shadow-lg lg:shadow-none colorModeTransition`}>
         <button onClick={() => setfilter('all')} className={`${filter === "all" ? 'activeBtn' : ""} text-lmode-grayishBlue1 hover:text-lmode-grayishBlue2 dark:hover:text-dmode-lgbHover cursor-pointer flex-none transition-colors duration-150 ease-in-out`}>All</button>

@@ -11,7 +11,7 @@ type HeaderProps = {
 
 export const Header = ({currentTheme, setTheme}: HeaderProps) => {
   const {bgMobileDark,bgMobileLight,bgDesktopDark,bgDesktopLight,sunIcon,moonIcon} = TodoDesignImages
-  const addTask = useTodoStore((state:any) => state.addTask)
+  const addTask = useTodoStore((state) => state.addTask)
   const [title, setTitle] = useState('')
 
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
@@ -22,7 +22,7 @@ export const Header = ({currentTheme, setTheme}: HeaderProps) => {
     }
   }
 
-  const onChangeTitle = (e:any) => {
+  const onChangeTitle = (e:React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value)
   }
 

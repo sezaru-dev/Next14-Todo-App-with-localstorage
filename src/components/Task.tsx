@@ -10,8 +10,8 @@ type TaskItemProps = {
 
 const Task = ({task}:TaskItemProps) => {
   const {IconCheck, IconCross} = TodoDesignImages
-  const toggleTaskStatus = useTodoStore((state:any) => state.toggleTaskStatus)
-  const deleteTask = useTodoStore((state:any) => state.deleteTask)
+  const toggleTaskStatus = useTodoStore((state) => state.toggleTaskStatus)
+  const deleteTask = useTodoStore((state) => state.deleteTask)
   
   return (
     <div className='py-4 px-5 lg:py-5 lg:px-6 bg-lmode-veryLightGray dark:bg-dmode-darkDesaturatedBlue flex items-center gap-6 group colorModeTransition'>
