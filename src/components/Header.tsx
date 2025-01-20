@@ -1,27 +1,25 @@
 'use client'
 import React, {useState} from 'react'
-import bgMobileDark from '@/public/bg-mobile-dark.jpg'
-import bgMobileLight from '@/public/bg-mobile-light.jpg'
-import bgDesktopDark from '@/public/bg-desktop-dark.jpg'
-import bgDesktopLight from '@/public/bg-desktop-light.jpg'
-import sunIcon from '@/public/icon-sun.svg'
-import moonIcon from '@/public/icon-moon.svg'
+import {TodoDesignImages} from '@/constants/images'
 import Image from 'next/image'
-
+import { useTodoStore } from '@/store/todo-store'
 
 type HeaderProps = {
   currentTheme?: string | undefined
   setTheme: React.Dispatch<React.SetStateAction<string>>
-  addTask: (taskTitle: string) => void;
 }
 
-export const Header = ({currentTheme, setTheme, addTask}: HeaderProps) => {
+export const Header = ({currentTheme, setTheme}: HeaderProps) => {
+  const {bgMobileDark,bgMobileLight,bgDesktopDark,bgDesktopLight,sunIcon,moonIcon} = TodoDesignImages
+  const addTask = useTodoStore((state:any) => state.addTask)
   const [title, setTitle] = useState('')
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    addTask(title)
-    setTitle('')
+    if (title) {      
+      addTask(title.trim())
+      setTitle('')
+    }
   }
 
   const onChangeTitle = (e:any) => {
