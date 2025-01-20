@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans } from 'next/font/google'
 import "./globals.css";
-import { TodoThemeProvider } from "@/providers/ThemeProvider";
+import { TodoThemeProvider } from "@/ThemeProvider";
 
 const JosefinSans = Josefin_Sans({
   weight: ['100', '200','300','400','500','600','700'],
