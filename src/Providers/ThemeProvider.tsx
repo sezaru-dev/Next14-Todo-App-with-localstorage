@@ -8,7 +8,7 @@ type ThemeProviderProps = React.ComponentProps<typeof NextThemesProvider> & {
   children: React.ReactNode;
 };
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+export function TodoThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider {...props}>
       {children}

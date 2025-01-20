@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans } from 'next/font/google'
 import "./globals.css";
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { TodoThemeProvider } from "@/providers/ThemeProvider";
 
 const JosefinSans = Josefin_Sans({
   weight: ['100', '200','300','400','500','600','700'],
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${JosefinSans.variable}`}>
-        <ThemeProvider enableSystem={true} attribute="class">
+        <TodoThemeProvider enableSystem={true} attribute="class">
           {children}
-        </ThemeProvider>
+        </TodoThemeProvider>
       </body>
     </html>
   );
